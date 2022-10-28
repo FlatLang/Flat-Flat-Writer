@@ -1,0 +1,20 @@
+package flat/writer/flat
+
+import flat/ast
+import flat/compiler/models/Token
+import flat/io
+import flat/log/Logger
+import flat/eventstream/EventStream
+import flat/writer
+
+class extends NodeWriter<ImportNode> {
+  public write(ImportNode node, OutputStream outputStream) {
+    outputStream.write("import")
+
+    if (node.staticImport) {
+      outputStream.write(" static")
+    }
+
+    outputStream.write(node.location)
+  }
+}

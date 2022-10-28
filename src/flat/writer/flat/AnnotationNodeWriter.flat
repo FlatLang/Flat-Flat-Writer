@@ -1,0 +1,24 @@
+package flat/writer/flat
+
+import flat/ast
+import flat/annotations
+import flat/compiler/models/Token
+import flat/io
+import flat/log/Logger
+import flat/eventstream/EventStream
+import flat/writer
+
+class extends NodeWriter<AnnotationNode> {
+  public write(AnnotationNode node, OutputStream outputStream) {
+    if (node.class.isOfType(Modifier.class)) {
+      let modifier = (Modifier)node
+      native var Char[] data
+      external {
+        #{data} = #{modifier}.aliasUsed.chars.data;
+      }
+      outputStream.write(String(data))
+    } else {
+      outputStream.write("[#{node.identifier}]")
+    }
+  }
+}

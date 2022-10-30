@@ -8,15 +8,15 @@ import flat/eventstream/EventStream
 import flat/writer
 
 class extends NodeWriter<LocalDeclarationNode> {
-  public write(LocalDeclarationNode node, OutputStream outputStream) {
+  public write(LocalDeclarationNode node, WriterOutputStream output) {
     if (node.type) {
-      outputStream.write(node.type)
+      output.write(node.type)
     }
 
     for (i in 0..node.arrayDimensions) {
-      outputStream.write("[]")
+      output.write("[]")
     }
 
-    outputStream.write(node.name)
+    output.write(node.name)
   }
 }

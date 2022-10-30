@@ -8,7 +8,7 @@ import flat/eventstream/EventStream
 import flat/writer
 
 class extends NodeWriter<LiteralNode> {
-  public write(LiteralNode node, OutputStream outputStream) {
-    outputStream.write(node.value)
+  public write(LiteralNode node, WriterOutputStream output) {
+    output.write(node.value)
   }
 }

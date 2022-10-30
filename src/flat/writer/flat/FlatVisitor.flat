@@ -22,23 +22,23 @@ class extends VisitorBase {
   static DotAccessNodeWriter dotAccessNodeWriter = DotAccessNodeWriter()
   static LiteralNodeWriter literalNodeWriter = LiteralNodeWriter()
 
-  public construct(private OutputStream outputStream) {}
+  public construct(private WriterOutputStream output) {}
 
   override public visit(Node node) {
     let type = node.class
 
-    if (type.isOfType(FileNode.class)) fileNodeWriter.write((FileNode)node, outputStream)
-    else if (type.isOfType(PackageNode.class)) packageNodeWriter.write((PackageNode)node, outputStream)
-    else if (type.isOfType(ImportNode.class)) importNodeWriter.write((ImportNode)node, outputStream)
-    else if (type.isOfType(AnnotationNode.class)) annotationNodeWriter.write((AnnotationNode)node, outputStream)
-    else if (type.isOfType(ClassNode.class)) classNodeWriter.write((ClassNode)node, outputStream)
-    else if (type.isOfType(FunctionNode.class)) functionNodeWriter.write((FunctionNode)node, outputStream)
-    else if (type.isOfType(LocalDeclarationNode.class)) localDeclarationNodeWriter.write((LocalDeclarationNode)node, outputStream)
-    else if (type.isOfType(AssignmentNode.class)) assignmentNodeWriter.write((AssignmentNode)node, outputStream)
-    else if (type.isOfType(FunctionCallNode.class)) functionCallNodeWriter.write((FunctionCallNode)node, outputStream)
-    else if (type.isOfType(IdentifierNode.class)) identifierNodeWriter.write((IdentifierNode)node, outputStream)
-    else if (type.isOfType(DotAccessNode.class)) dotAccessNodeWriter.write((DotAccessNode)node, outputStream)
-    else if (type.isOfType(LiteralNode.class)) literalNodeWriter.write((LiteralNode)node, outputStream)
+    if (type.isOfType(FileNode.class)) fileNodeWriter.write((FileNode)node, output)
+    else if (type.isOfType(PackageNode.class)) packageNodeWriter.write((PackageNode)node, output)
+    else if (type.isOfType(ImportNode.class)) importNodeWriter.write((ImportNode)node, output)
+    else if (type.isOfType(AnnotationNode.class)) annotationNodeWriter.write((AnnotationNode)node, output)
+    else if (type.isOfType(ClassNode.class)) classNodeWriter.write((ClassNode)node, output)
+    else if (type.isOfType(FunctionNode.class)) functionNodeWriter.write((FunctionNode)node, output)
+    else if (type.isOfType(LocalDeclarationNode.class)) localDeclarationNodeWriter.write((LocalDeclarationNode)node, output)
+    else if (type.isOfType(AssignmentNode.class)) assignmentNodeWriter.write((AssignmentNode)node, output)
+    else if (type.isOfType(FunctionCallNode.class)) functionCallNodeWriter.write((FunctionCallNode)node, output)
+    else if (type.isOfType(IdentifierNode.class)) identifierNodeWriter.write((IdentifierNode)node, output)
+    else if (type.isOfType(DotAccessNode.class)) dotAccessNodeWriter.write((DotAccessNode)node, output)
+    else if (type.isOfType(LiteralNode.class)) literalNodeWriter.write((LiteralNode)node, output)
     else throw Exception("Unsupported node type: #{node.class}")
   }
 }

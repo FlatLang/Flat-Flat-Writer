@@ -9,16 +9,16 @@ import flat/eventstream/EventStream
 import flat/writer
 
 class extends NodeWriter<AnnotationNode> {
-  public write(AnnotationNode node, OutputStream outputStream) {
+  public write(AnnotationNode node, WriterOutputStream output) {
     if (node.class.isOfType(Modifier.class)) {
       let modifier = (Modifier)node
       native var Char[] data
       external {
         #{data} = #{modifier}.aliasUsed.chars.data;
       }
-      outputStream.write(String(data))
+      output.write(String(data))
     } else {
-      outputStream.write("[#{node.identifier}]")
+      output.write("[#{node.identifier}]")
     }
   }
 }

@@ -1,7 +1,5 @@
 package flat/writer/flat
 
-import flat/writer/flat/FlatWriter
-
 testable class {
   test `can create`() {
     let value = FlatWriter()

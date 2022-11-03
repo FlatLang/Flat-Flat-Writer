@@ -9,14 +9,6 @@ import flat/writer
 
 class extends NodeWriter<LocalDeclarationNode> {
   public write(LocalDeclarationNode node, WriterOutputStream output) {
-    if (node.type) {
-      output.write(node.type)
-    }
-
-    for (i in 0..node.arrayDimensions) {
-      output.write("[]")
-    }
-
     output.write(node.name)
   }
 }

@@ -3,7 +3,4 @@ package flat/writer/flat
 import flat/writer
 
 class extends WriterOutputStream {
-  override public write(String value = "") => this {
-    Console.log("writing: #{value}")
-  }
 }

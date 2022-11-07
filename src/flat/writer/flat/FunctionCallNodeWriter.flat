@@ -9,6 +9,6 @@ import flat/writer
 
 class extends NodeWriter<FunctionCallNode> {
   public write(FunctionCallNode node, WriterOutputStream output) {
-    output.write("#{node.name}()")
+    output.write("()")
   }
 }

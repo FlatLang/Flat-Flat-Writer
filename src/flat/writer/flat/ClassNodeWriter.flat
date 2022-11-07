@@ -9,6 +9,6 @@ import flat/writer
 
 class extends NodeWriter<ClassNode> {
   public write(ClassNode node, WriterOutputStream output) {
-    output.write("class #{node.name}")
+    output.write("class")
   }
 }

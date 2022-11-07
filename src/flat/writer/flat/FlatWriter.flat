@@ -4,15 +4,37 @@ import flat/ast
 import flat/ast/visitor
 import flat/compiler/models/Token
 import flat/io
+import flat/parser
 import flat/log/Logger
 import flat/eventstream/EventStream
 import flat/writer
 
+import flat/writer/WriterPatternExtensions
+
 class extends Writer {
-  public write(EventStream nodeStream) -> EventStream {
+  static Logger log = Logger(FlatWriter.class)
+
+  public write(
+    EventStream nodeStream
+  ) -> EventStream {
     let outputStream = FlatOutputStream()
-    let visitor = FlatVisitor(outputStream)
-    let visitorStream = Visitor().visit(nodeStream, visitor)
-    return visitorStream
+
+    return EventStream(true).on("start", (data, stream) => {
+      nodeStream.on<NodeResult>("data", (nodeResult) => {
+        FlatWriter.log.traceFunc({"Received data from NodeResult EventStream: #{nodeResult}"})
+
+        nodeResult.pattern.getWriter().write(outputStream, nodeResult.node)
+      })
+
+      nodeStream.on<String>("error", (error) => {
+        FlatWriter.log.traceFunc({"Received error from NodeResult EventStream: #{error}"})
+        stream.emit("error", error)
+      })
+
+      nodeStream.on("close", {
+        FlatWriter.log.traceFunc({"NodeResult EventStream closed"})
+        stream.emit("close")
+      })
+    })
   }
 }

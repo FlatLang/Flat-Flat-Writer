@@ -22,7 +22,8 @@
         "github:FlatLang/Logger": "master",
         "github:FlatLang/Event-Stream": "master",
         "github:FlatLang/Flat-Writer": "master",
-        "github:FlatLang/Parser-Core": "master"
+        "github:FlatLang/Parser-Core": "master",
+        "github:FlatLang/Flat-Parser": "master"
       }
     },
     "test": {

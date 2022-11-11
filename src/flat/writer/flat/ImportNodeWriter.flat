@@ -11,8 +11,8 @@ class extends NodeWriter<ImportNode> {
   public write(ImportNode node, WriterOutputStream output) {
     output.write("import")
 
-    if (node.staticImport) {
-      output.write(" static")
+    if (node.type) {
+      output.write(" #{node.type.value}")
     }
 
     output.write(node.location)

@@ -9,6 +9,6 @@ import flat/writer
 
 class extends NodeWriter<LocalDeclarationNode> {
   public write(LocalDeclarationNode node, WriterOutputStream output) {
-    output.write("")
+    output.writeString("")
   }
 }

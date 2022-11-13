@@ -10,6 +10,6 @@ import flat/writer
 
 class extends NodeWriter<AnnotationNode> {
   public write(AnnotationNode node, WriterOutputStream output) {
-    output.write("[#{node.identifier}]")
+    output.writeString("[#{node.identifier}]")
   }
 }

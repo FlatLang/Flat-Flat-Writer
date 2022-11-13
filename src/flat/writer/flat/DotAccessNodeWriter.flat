@@ -9,6 +9,6 @@ import flat/writer
 
 class extends NodeWriter<DotAccessNode> {
   public write(DotAccessNode node, WriterOutputStream output) {
-    output.write(".")
+    output.writeString(".")
   }
 }

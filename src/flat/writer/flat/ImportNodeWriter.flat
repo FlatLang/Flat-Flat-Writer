@@ -9,12 +9,12 @@ import flat/writer
 
 class extends NodeWriter<ImportNode> {
   public write(ImportNode node, WriterOutputStream output) {
-    output.write("import")
+    output.writeString("import")
 
     if (node.type) {
-      output.write(" #{node.type.value}")
+      output.writeString(" #{node.type.value}")
     }
 
-    output.write(node.location)
+    output.writeString(node.location)
   }
 }

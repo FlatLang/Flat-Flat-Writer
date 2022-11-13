@@ -9,6 +9,6 @@ import flat/writer
 
 class extends NodeWriter<IdentifierNode> {
   public write(IdentifierNode node, WriterOutputStream output) {
-    output.write(node.name)
+    output.writeToken(node.name)
   }
 }

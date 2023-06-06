@@ -9,7 +9,7 @@ import flat/eventstream/EventStream
 import flat/writer
 
 class extends NodeWriter<AnnotationNode> {
-  public write(AnnotationNode node, WriterOutputStream output) {
-    output.writeString("[#{node.identifier}]")
-  }
+    public write(AnnotationNode node, WriterOutputStream output) {
+        output.writeString("[#{node.identifier}]")
+    }
 }

@@ -8,5 +8,5 @@ import flat/eventstream/EventStream
 import flat/writer
 
 class extends NodeWriter<FileNode> {
-  public write(FileNode node, WriterOutputStream output) {}
+    public write(FileNode node, WriterOutputStream output) {}
 }

@@ -8,13 +8,13 @@ import flat/eventstream/EventStream
 import flat/writer
 
 class extends NodeWriter<ImportNode> {
-  public write(ImportNode node, WriterOutputStream output) {
-    output.writeString("import")
+    public write(ImportNode node, WriterOutputStream output) {
+        output.writeString("import")
 
-    if (node.type) {
-      output.writeString(" #{node.type.value}")
+        if (node.type) {
+            output.writeString(" #{node.type.value}")
+        }
+
+        output.writeString(node.location)
     }
-
-    output.writeString(node.location)
-  }
 }

@@ -14,11 +14,11 @@ import flat/writer
 import flat/writer/WriterPatternExtensions
 
 class extends Writer {
-  static Logger log = Logger(FlatWriter.class)
+    static Logger log = Logger(FlatWriter.class)
 
-  PatternMapper mapper = FlatPatternMapper.getMapper()
+    PatternMapper mapper = FlatPatternMapper.getMapper()
 
-  override public getPattern(Class<Node> nodeType) -> TokenPattern {
-    return mapper.getPattern(nodeType)
-  }
+    override public getPattern(Class<Node> nodeType) -> TokenPattern {
+        return mapper.getPattern(nodeType)
+    }
 }
